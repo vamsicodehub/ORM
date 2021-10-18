@@ -1,0 +1,32 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.vamc.aurionprohib.bean.SystemBankBO" table="SYSTEMBANKBO">
+    
+       <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="bankName" type="string">
+            <column name="BANKNAME" length="10" not-null="false" unique="true" />
+        </property>
+        
+        <property name="bankCode" type="string">
+            <column name="BANKCODE" length="10" not-null="false" unique="true" />
+        </property>
+        
+        <property name = "countryId" column = "COUNTRYID"  type = "java.lang.Integer"/>
+        
+        
+        <!-- <one-to-one name = "countryBO" cascade="all"/> -->
+       
+       <!-- <many-to-one name="countryBO" column = "COUNTRYID" lazy="false" cascade="save-update"/> -->
+       
+       <many-to-one name="countryBO" column = "COUNTRYID" lazy="false" insert = "false" update = "false" cascade="save-update"/>
+       
+    </class>
+    
+</hibernate-mapping>

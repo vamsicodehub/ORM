@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration  PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+
+<session-factory>
+
+<!-- Database connection settings -->
+
+
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+<property name="connection.url">jdbc:mysql://localhost:3306/Vamsi_Hibernate</property>
+
+<property name="connection.username">root</property>
+
+<property name="connection.password"/>
+
+<!-- JDBC connection pool (use the built-in) -->
+
+
+<property name="connection.pool_size">1</property>
+
+<!-- SQL dialect -->
+
+
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+<!-- Disable the second-level cache -->
+
+
+<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+<!-- Echo all executed SQL to stdout -->
+
+
+<property name="show_sql">true</property>
+
+<!-- Drop and re-create the database schema on startup -->
+
+
+<property name="hbm2ddl.auto">validate</property>
+
+<!-- Names the annotated entity class -->
+
+
+<!-- <mapping class="com.vamc.myhib.bean.UserDetails"/>
+<mapping class="com.vamc.myhib.bean.onetoone.Company"/>
+<mapping class="com.vamc.myhib.bean.onetoone.Employee"/>
+<mapping class="com.vamc.myhib.bean.onetomany.College"/>
+<mapping class="com.vamc.myhib.bean.onetomany.Student"/>
+<mapping class="com.vamc.myhib.bean.manytomany.Person"/>
+<mapping class="com.vamc.myhib.bean.manytomany.Vehicle"/>
+<mapping class="com.vamc.myhib.bean.inheritance.Cricket"/>
+<mapping class="com.vamc.myhib.bean.inheritance.TestCricket"/>
+<mapping class="com.vamc.myhib.bean.inheritance.ODICricket"/>
+<mapping class="com.vamc.myhib.bean.inheritance.T20ICricket"/> -->
+
+ <mapping resource="com/vamc/aurionprohib/bean/CountryBO.hbm.xml" />
+ <mapping resource="com/vamc/aurionprohib/bean/SystemBankBO.hbm.xml" />
+ <mapping resource="com/vamc/aurionprohib/bean/CurrencyBO.hbm.xml" />
+
+</session-factory>
+
+</hibernate-configuration>

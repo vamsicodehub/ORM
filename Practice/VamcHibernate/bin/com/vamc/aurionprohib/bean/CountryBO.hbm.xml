@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.vamc.aurionprohib.bean.CountryBO" table="COUNTRYBO">
+        <id name="countryId" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="countryName" type="string">
+            <column name="COUNTRYNAME" length="10" not-null="false" unique="true" />
+        </property>
+        
+        <set name="currencies" table="COUNTRYCURRENCYMAPPINGBO" inverse="true"
+	    lazy="true" fetch="select" cascade="all">
+            <key column="COUNTRYID" />
+            <many-to-many column="CURRENCYID"  class="com.vamc.aurionprohib.bean.CurrencyBO" />
+        </set>
+        
+        
+    </class>
+</hibernate-mapping>
